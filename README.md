@@ -95,10 +95,10 @@ classDiagram
 
 ```bash
 # Clone o repositório 
-$ git clone https://github.com/reynaldo86/Dio-Api-Restful.git
+$ git clone https://github.com/reynaldo-hendson/Teste_Desenvolvedor_Backend.git
 
 # Acesse a pasta do projeto
-$ cd Dio-Api-Restful
+$ cd Teste_Desenvolvedor_Backend
 
 # Instale as dependências
 $ mvn clean install
