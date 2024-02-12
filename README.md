@@ -32,30 +32,30 @@ O campo de matrícula não pode se repetir dentro da base;
 ```mermaid
 classDiagram
   class Student {
-    -String name
-    -String lastName
-    -String cpf
-    -String email
-    -Endereco endereco
-    -List<Phone> phone
-    -String registration
-    -StatusRegistrationStudent status
-    -LocalDateTime dateRegistration
-    -LocalDateTime lockingDateRegistration
+    -name : string
+    -lastName : string
+    -cpf : string
+    -email : string
+    -endereco Endereco
+    -phone : List<Phone>
+    -registration : string
+    -status : StatusRegistrationStudent
+    -dateRegistration : LocalDateTime
+    -lockingDateRegistration : LocalDateTime
   }
 
   class Phone {
-    -String phone
-    -Student student
+    -phone : string
+    -student : Student
   }
   
   class Endereco {
     -String cep
-	-String logradouro
-	-String complemento
-	-String bairro
-	-String localidade
-	-String uf
+	-logradouro : string
+	-complemento : string
+	-bairro : string
+	-localidade : string
+	-uf : string
   }
   
   StatusRegistrationStudent {
