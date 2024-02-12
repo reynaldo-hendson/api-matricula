@@ -31,42 +31,44 @@ O campo de matrícula não pode se repetir dentro da base;
 
 ```mermaid
 classDiagram
+ Student "1" <--> "1..*" Phone
+ Student "1" <--> "1..*"Endereco 
+ Student *-- StatusRegistrationStudent 
+
   class Student {
-    -name : string
-    -lastName : string
-    -cpf : string
-    -email : string
-    -endereco Endereco
-    -phone : List<Phone>
-    -registration : string
-    -status : StatusRegistrationStudent
-    -dateRegistration : LocalDateTime
-    -lockingDateRegistration : LocalDateTime
+    -String name
+    -String lastName
+    -String cpf
+    -String email
+    -Endereco endereco
+    -List<Phone> phone
+    -String registration
+    -StatusRegistrationStudent status
+    -LocalDateTime dateRegistration
+    -LocalDateTime lockingDateRegistration
   }
 
   class Phone {
-    -phone : string
-    -student : Student
+    -String phone
+    -Student student
   }
-  
+
   class Endereco {
     -String cep
-	-logradouro : string
-	-complemento : string
-	-bairro : string
-	-localidade : string
-	-uf : string
+    -String logradouro
+    -String complemento
+    -String bairro
+    -String localidade
+    -String uf
   }
-  
-  StatusRegistrationStudent {
+
+  class StatusRegistrationStudent {
     «enumeration»
     ATIVA
     TRANCADA
   }
 
-  Student "1..1"<-->"0..N" Phone
-  Student "1..N"<-->"1..1"> Endereco 
-  Student "1..1"<-->"1..1"> StatusRegistrationStudent
+ 
 ```
 
 <h2 id = "funcionalidades"> 🖥️Funcionalidades do Projeto </h2>
