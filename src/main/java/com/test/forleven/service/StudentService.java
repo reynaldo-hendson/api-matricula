@@ -65,7 +65,7 @@ public class StudentService {
 
         // Obtendo a data e hora atuais formatadas no estilo brasileiro
         String dataHoraAtualFormatada = DateTimeUtil.obterDataHoraAtualFormatada();
-        student.setDateTime(DateTimeUtil.converterStringParaLocalDateTime(dataHoraAtualFormatada));
+        student.setDateRegistration(DateTimeUtil.converterStringParaLocalDateTime(dataHoraAtualFormatada));
 
         log.info("Saving student data.");
         return studentRepository.save(student);
