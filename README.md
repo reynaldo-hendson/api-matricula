@@ -83,8 +83,7 @@ classDiagram
 - [x] Buscar Telefones do Estudante por id.
 
 ## 📺Layout
-
-![interface](endereço com a foto da aplicação)
+![endpoints](https://github.com/reynaldo-hendson/Teste_Desenvolvedor_Backend/assets/80369346/816e046f-4641-4b59-9df6-a4ece0742131)
 
 <h2 id="demonstracao"> Demonstração </h2>
 
