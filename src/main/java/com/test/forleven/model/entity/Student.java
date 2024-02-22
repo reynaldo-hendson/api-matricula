@@ -85,7 +85,7 @@ public class Student {
         }
         setStatus(StatusRegistrationStudent.TRANCADA);
         String dataHoraAtualFormatada = DateTimeUtil.obterDataHoraAtualFormatada();
-        setLockingDate(DateTimeUtil.converterStringParaLocalDateTime(dataHoraAtualFormatada));
+        setLockingDateRegistration(DateTimeUtil.converterStringParaLocalDateTime(dataHoraAtualFormatada));
     }
     public boolean canBeLocked(){
         return StatusRegistrationStudent.ATIVA.equals(getStatus());
