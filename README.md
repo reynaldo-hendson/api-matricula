@@ -115,8 +115,9 @@ Consulte o arquivo application.properties (ou application.yml) para configurar o
 
 1. [Java 17](https://www.java.com/pt-BR/)
 2. [Spring Boot 3](https://spring.io/projects/spring-boot)
-3. [OpenAPI (Swagger)](https://springdoc.org/)
-4. [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
+3. [ViaCEP](https://viacep.com.br/)
+4. [OpenAPI (Swagger)](https://springdoc.org/)
+5. [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
 
 <h2 id="autoras">👤Pessoas Autoras</h2>
 
