@@ -1,16 +1,19 @@
 package com.test.forleven.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_phones")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Phone {
+public class Telefone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +23,10 @@ public class Phone {
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
+    @JoinColumn(name = "estudante_id")
+    private Estudante estudante;
+
+    @Column(name = "data_registro")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private LocalDateTime dataRegistro;
 }
