@@ -41,7 +41,7 @@ classDiagram
     -String cpf
     -String email
     -Endereco endereco
-    -List<Phone> phone
+    -List<Phone> telefone
     -String registration
     -StatusRegistrationStudent status
     -LocalDateTime dateRegistration
@@ -49,8 +49,8 @@ classDiagram
   }
 
   class Phone {
-    -String phone
-    -Student student
+    -String telefone
+    -Student estudante
   }
 
   class Endereco {
@@ -118,6 +118,7 @@ Consulte o arquivo application.properties (ou application.yml) para configurar o
 3. [ViaCEP](https://viacep.com.br/)
 4. [OpenAPI (Swagger)](https://springdoc.org/)
 5. [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
+6. [MapStruct](https://mapstruct.org/)
 
 <h2 id="autoras">👤Pessoas Autoras</h2>
 

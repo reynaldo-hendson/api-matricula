@@ -1,6 +1,6 @@
 package com.test.forleven.model.entity;
 
-public enum StatusRegistrationStudent {
+public enum StatusMatriculaEstudante {
     ATIVA,
     TRANCADA
 }
