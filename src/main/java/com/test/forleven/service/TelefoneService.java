@@ -28,9 +28,9 @@ public class TelefoneService {
 
         Telefone telefone = new Telefone();
 
-        String fone = request.getEstudante();
+        String estudante = request.getEstudante();
 
-        Optional<Estudante> student = estudanteRepository.findById(fone);
+        Optional<Estudante> student = estudanteRepository.findById(estudante);
         if (student.isPresent()) {
             telefone.setEstudante(student.get());
             telefone.setPhone(request.getPhone());

@@ -10,6 +10,7 @@ import com.test.forleven.service.TelefoneService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,7 @@ public class TelefoneController {
             @ApiResponse(responseCode = "201", description = "Telefone criado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Um ou mais parâmetros estão incorretos, tente novamente.")
     })
-    public ResponseEntity<TelefoneResponse> createPhone(@RequestBody TelefoneRequest request){
+    public ResponseEntity<TelefoneResponse> createPhone(@RequestBody @Valid TelefoneRequest request){
         var novoTelefone = telefoneService.createPhone(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(telefoneResponseMapper.toTelefoneResponse(novoTelefone));
     }
