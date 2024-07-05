@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Matricula extends RepresentationModel<Matricula> {
+public class Matricula {
 
     @Id
     @Column(name = "matricula", unique = true)
