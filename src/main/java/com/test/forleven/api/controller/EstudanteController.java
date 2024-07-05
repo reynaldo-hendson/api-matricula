@@ -10,6 +10,7 @@ import com.test.forleven.service.EstudanteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class EstudanteController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Registro do estudante criado com sucesso."),
             @ApiResponse(responseCode = "400", description = "Um ou mais parâmetros estão incorretos, verifique e tente novamente.")})
-    public ResponseEntity<EstudanteResponse> createStudent(@RequestBody EstudanteRequest estudanteRequest) {
+    public ResponseEntity<EstudanteResponse> createStudent(@RequestBody @Valid EstudanteRequest estudanteRequest) {
         var estudanteNovo = estudanteService.save(estudanteRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(estudanteResponseMapper.toEstudanteResponse(estudanteNovo));
     }

@@ -10,7 +10,6 @@ public class ForlevenApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ForlevenApplication.class, args);
-		System.out.println("Funcionando...");
 	}
 
 }
