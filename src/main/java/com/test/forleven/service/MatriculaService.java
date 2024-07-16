@@ -21,7 +21,6 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class MatriculaService {
-    // TODO criar payload resumido de matricula
 
     private final MatriculaRepository matriculaRepository;
     private final EstudanteRepository estudanteRepository;

@@ -85,7 +85,7 @@ public class EstudanteService {
     public Estudante update(String id, EstudanteRequest estudanteRequest) {
         // Verificar se o estudante existe
         Estudante estudante = estudanteRepository.findById(id)
-                .orElseThrow(() -> new NegocioException("Estudante não encontrado."));
+                .orElseThrow(() -> new EntidadeNaoEncontradaException("Estudante não encontrado."));
 
         // Atualizar as informações do estudante
         estudante.setName(estudanteRequest.getName());

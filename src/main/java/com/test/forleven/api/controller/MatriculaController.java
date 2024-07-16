@@ -1,6 +1,9 @@
 package com.test.forleven.api.controller;
 
-import com.test.forleven.model.dto.MatriculaDTO;
+import com.test.forleven.api.mapper.MatriculaMapper;
+import com.test.forleven.api.request.MatriculaRequest;
+import com.test.forleven.api.response.MatriculaResponse;
+import com.test.forleven.api.response.MatriculaResumeResponse;
 import com.test.forleven.model.entity.Matricula;
 import com.test.forleven.service.MatriculaService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,45 +26,53 @@ import java.util.Optional;
 public class MatriculaController {
 
     private final MatriculaService matriculaService;
+    private final MatriculaMapper mapper;
 
     @PostMapping
-    @Operation(summary = "Cria uma nova matricula", description = "Cria uma nova matricula e retorna os dados criados.")
+    @Operation(summary = "Criar uma nova matricula", description = "Gera um número de matricula para um aluno.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Matricula gerada com sucesso"),
+            @ApiResponse(responseCode = "201", description = "Matricula gerada com sucesso."),
             @ApiResponse(responseCode = "400", description = "Um ou mais campos estão errados, tente novamente."),
-            @ApiResponse(responseCode = "404", description = "Cpf não válido..")})
-    public ResponseEntity<Matricula> criarMatricula(@RequestBody @Valid MatriculaDTO matriculaDto){
-        Matricula newMatricula = matriculaService.criarMatricula(matriculaDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newMatricula);
+            @ApiResponse(responseCode = "404", description = "Cpf não válido.")})
+    public ResponseEntity<MatriculaResponse> criarMatricula(@RequestBody @Valid MatriculaRequest matriculaRequest){
+        Matricula novaMatricula = matriculaService.criarMatricula(matriculaRequest);
+        MatriculaResponse response = mapper.matriculaToMatriculaResponse(novaMatricula);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
 
     @GetMapping
-    @Operation(summary = "Lista todas as matricula", description = "Retorna todas as matriculas existentes.")
+    @Operation(summary = "Listar todas as matricula.", description = "Retorna todas as matriculas existentes.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operação realizada")})
-    public ResponseEntity <List<Matricula>> listTodasMatriculas(){
-        return ResponseEntity.status(HttpStatus.OK).body(matriculaService.matriculaList());
+    public ResponseEntity <List<MatriculaResumeResponse>> listTodasMatriculas(){
+        List<Matricula> matriculaList = matriculaService.matriculaList();
+        List<MatriculaResumeResponse> matriculaResumeResponses = mapper.toMatriculaResponseList(matriculaList);
+        return ResponseEntity.status(HttpStatus.OK).body(matriculaResumeResponses);
     }
 
     @GetMapping("/ativas")
-    @Operation(summary = "Lista todas as matricula ativas.", description = "Retorna todas as matriculas ativas existentes.")
+    @Operation(summary = "Listar matriculas ativas.", description = "Retorna todas as matriculas com status 'Ativa'.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operação realizada")})
-    public ResponseEntity<List<Matricula>> listarMatriculasAtivas(){
-        return ResponseEntity.status(HttpStatus.OK).body(matriculaService.matriculaAtiva());
+    public ResponseEntity<List<MatriculaResumeResponse>> listarMatriculasAtivas(){
+        List<Matricula> matriculaList = matriculaService.matriculaAtiva();
+        List<MatriculaResumeResponse> matriculaResumeResponses = mapper.toMatriculaResponseList(matriculaList);
+        return ResponseEntity.status(HttpStatus.OK).body(matriculaResumeResponses);
     }
 
     @GetMapping("/trancadas")
-    @Operation(summary = "Lista todas as matricula trancadas.", description = "Retorna todas as matriculas trancadsa existentes.")
+    @Operation(summary = "Listar matriculas trancadas.", description = "Retorna todas as matriculas com status 'Trancada'.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operação realizada")})
-    public ResponseEntity<List<Matricula>> listarMatriculasTrancadas(){
-        return ResponseEntity.status(HttpStatus.OK).body(matriculaService.matriculaTrancada());
+    public ResponseEntity<List<MatriculaResumeResponse>> listarMatriculasTrancadas(){
+        List<Matricula> matriculaList = matriculaService.matriculaTrancada();
+        List<MatriculaResumeResponse> matriculaResumeResponses = mapper.toMatriculaResponseList(matriculaList);
+        return ResponseEntity.status(HttpStatus.OK).body(matriculaResumeResponses);
     }
 
     @GetMapping("/{matriculaId}/buscar")
-    @Operation(summary = "Mostra matricula pelo número.", description = "Retorna dados da matricula.")
+    @Operation(summary = "Buscar Matricula.", description = "Busca matricula pelo número da matricula.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operação realizada"),
             @ApiResponse(responseCode = "404", description = "Matricula não existente")})
@@ -69,14 +80,14 @@ public class MatriculaController {
         return ResponseEntity.status(HttpStatus.OK).body(matriculaService.findByMatricula(matriculaId));
     }
 
-//    @GetMapping("estudante/{estudanteId}/buscar")
-//    @Operation(summary = "Mostra matricula pelo número.", description = "Retorna dados da matricula.")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "Operação realizada"),
-//            @ApiResponse(responseCode = "404", description = "Matricula não existente")})
-//    public ResponseEntity< List<Matricula>> buscarPorEstudante(@PathVariable String estudanteId){
-//        return ResponseEntity.status(HttpStatus.OK).body(matriculaService.resumeMatriculas(estudanteId));
-//    }
+    @GetMapping("estudante/{estudanteCpf}/buscar")
+    @Operation(summary = "Buscar Matricula.", description = "Busca matricula pelo CPF do aluno.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Operação realizada"),
+            @ApiResponse(responseCode = "404", description = "Matricula não existente")})
+    public ResponseEntity<Optional<Matricula>> buscarPorEstudante(@PathVariable String estudanteCpf){
+        return ResponseEntity.status(HttpStatus.OK).body(matriculaService.findByMatriculaPorCpf(estudanteCpf));
+    }
 
 
     @PutMapping("/{numeroMatricula}/trancar_matricula")

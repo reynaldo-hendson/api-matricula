@@ -16,4 +16,8 @@ public class MatriculaResumeResponse {
 
     private LocalDateTime dataRegistroMatricula;
 
+    private LocalDateTime dataTrancamentoMatricula;
+
+    private LocalDateTime dataReaberturaMatricula;
+
 }
