@@ -11,5 +11,4 @@ public interface EstudanteResumeResponseMapper {
     EstudanteResumeResponse toEstudanteResumeResponse(Estudante estudante);
 
     List<EstudanteResumeResponse> toEstudanteResumeResponseList(List<Estudante> estudantes);
-
 }

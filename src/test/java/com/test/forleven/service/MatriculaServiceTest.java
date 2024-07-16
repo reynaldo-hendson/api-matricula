@@ -7,7 +7,6 @@ import com.test.forleven.model.entity.Matricula;
 import com.test.forleven.model.entity.StatusMatriculaEstudante;
 import com.test.forleven.repository.EstudanteRepository;
 import com.test.forleven.repository.MatriculaRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
