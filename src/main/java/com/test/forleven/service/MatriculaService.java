@@ -4,7 +4,6 @@ import com.test.forleven.api.request.MatriculaRequest;
 import com.test.forleven.infra.config.utils.DateTimeUtil;
 import com.test.forleven.infra.exceptions.EntidadeNaoEncontradaException;
 import com.test.forleven.infra.exceptions.NegocioException;
-import com.test.forleven.model.dto.MatriculaDTO;
 import com.test.forleven.model.entity.Estudante;
 import com.test.forleven.model.entity.Matricula;
 import com.test.forleven.model.entity.StatusMatriculaEstudante;
