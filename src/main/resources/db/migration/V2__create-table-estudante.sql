@@ -8,4 +8,4 @@ CREATE TABLE tb_students (
    CONSTRAINT pk_tb_students PRIMARY KEY (estudante_id)
 );
 
-ALTER TABLE tb_students ADD CONSTRAINT FK_TB_STUDENT
+ALTER TABLE tb_students ADD CONSTRAINT FK_TB_STUDENTS_ON_ENDERECO_CEP FOREIGN KEY (endereco_cep) REFERENCES endereco (cep);

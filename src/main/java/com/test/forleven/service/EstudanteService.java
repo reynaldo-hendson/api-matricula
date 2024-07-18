@@ -27,6 +27,9 @@ public class EstudanteService {
     private final TelefoneRepository telefoneRepository;
     private final ViaCepService viaCepService;
 
+    //Constante
+    private static final String ESTUDANTE_NAO_ENCONTRADO = "Estudante não encontrado.";
+
     public Estudante save(EstudanteRequest estudanteRequest) {
 
         Estudante estudante = new Estudante();
@@ -41,7 +44,7 @@ public class EstudanteService {
             throw new NegocioException("Email já cadastrado.");
         }
 
-        log.info("Validated CPF");
+        log.info("Validando CPF");
         if (!ValidaCpf.isCPF(estudanteRequest.getCpf())) {
             throw new NegocioException("CPF inválido.");
         }else {
@@ -54,8 +57,18 @@ public class EstudanteService {
             throw new NegocioException("CEP inválido.");
         }else{
             Endereco endereco = viaCepService.consultarCep(cep);
-            enderecoRepository.save(endereco);
-            estudante.setEndereco(endereco);
+            if (endereco != null && endereco.getCep() != null) {
+                Endereco estudanteEndereco = new Endereco();
+                estudanteEndereco.setCep(endereco.getCep());
+                estudanteEndereco.setLogradouro(endereco.getLogradouro());
+                estudanteEndereco.setBairro(endereco.getBairro());
+                estudanteEndereco.setLocalidade(endereco.getLocalidade());
+                estudanteEndereco.setUf(endereco.getUf());
+                enderecoRepository.save(estudanteEndereco);
+                estudante.setEndereco(estudanteEndereco);
+            } else {
+                throw new EntidadeNaoEncontradaException("CEP não encontrado.");
+            }
         }
 
         String dataHoraAtualFormatada = DateTimeUtil.obterDataHoraAtualFormatada();
@@ -63,7 +76,6 @@ public class EstudanteService {
 
         log.info("Salvando dados do estudante.");
         return estudanteRepository.save(estudante);
-
     }
 
     public List<Estudante> getAllStudent(){
@@ -72,20 +84,20 @@ public class EstudanteService {
     }
 
     public Optional<Estudante> findById(String id) {
-        Optional<Estudante> optStudent = estudanteRepository.findById(id);
+        Optional<Estudante> optStudent = Optional.ofNullable(estudanteRepository.findById(id)
+                .orElseThrow(() -> new EntidadeNaoEncontradaException(ESTUDANTE_NAO_ENCONTRADO)));
         log.info(logInfoExists());
         if (optStudent.isPresent()) {
             log.info("carregando dados do estudante.");
-            return estudanteRepository.findById(id);
-        }else{
-            throw new EntidadeNaoEncontradaException("Estudante não encontrado.");
+            estudanteRepository.findById(id);
         }
+        return optStudent;
 }
 
     public Estudante update(String id, EstudanteRequest estudanteRequest) {
         // Verificar se o estudante existe
         Estudante estudante = estudanteRepository.findById(id)
-                .orElseThrow(() -> new EntidadeNaoEncontradaException("Estudante não encontrado."));
+                .orElseThrow(() -> new EntidadeNaoEncontradaException(ESTUDANTE_NAO_ENCONTRADO));
 
         // Atualizar as informações do estudante
         estudante.setName(estudanteRequest.getName());
@@ -127,7 +139,7 @@ public class EstudanteService {
             log.info("Deletando dados.");
             estudanteRepository.delete(student.get());
         }else {
-            throw new EntidadeNaoEncontradaException("Estudante não encontrado.");
+            throw new EntidadeNaoEncontradaException(ESTUDANTE_NAO_ENCONTRADO);
         }
     }
 
