@@ -122,7 +122,18 @@ Consulte o arquivo application.properties (ou application.yml) para configurar o
 
 <h2 id="autoras">👤Pessoas Autoras</h2>
 
-<img src="https://avatars.githubusercontent.com/u/80369346?v=4" alt="imagem do desenvolvedor"></img>
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/80369346?s=400&u=54e1acd301770d2fb4f98f840bc764a71294cfbc&v=4" width="100px;" alt="Reynaldo Hendson Profile Picture"/><br>
+        <sub>
+          <b>Reynaldo Hendson</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 [Linkedin](https://www.linkedin.com/in/reynaldo-hendson/)
 
