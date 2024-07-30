@@ -140,7 +140,7 @@ Consulte o arquivo application.properties (ou application.yml) para configurar o
 
 <table>
   <tr>
-    <td align="center">
+    <td>
       <a href="#">
         <img src="https://avatars.githubusercontent.com/u/80369346?s=400&u=54e1acd301770d2fb4f98f840bc764a71294cfbc&v=4" width="100px;" alt="Reynaldo Hendson Profile Picture"/><br>
         <sub>
