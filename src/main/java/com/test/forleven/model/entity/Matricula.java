@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.test.forleven.infra.config.utils.DateTimeUtil;
 import com.test.forleven.infra.exceptions.NegocioException;
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.hateoas.RepresentationModel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Entity

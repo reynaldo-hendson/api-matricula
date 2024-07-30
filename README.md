@@ -82,14 +82,17 @@ classDiagram
 
 <h2 id = "funcionalidades"> 🖥️Funcionalidades do Projeto </h2>
 
-- [x] Cadastro de Estudante integrado a API ViaCep
-- [x] Consulta de Estudante 
-- [x] Consulta de Estudante por número de matrícula
-- [x] Consulta de Estudante por status da matrícula
-- [x] Exclusão do Estudante
-- [x] Atualização de Estudante
-- [x] Cadastro de Telefone
-- [x] Buscar Telefones do Estudante por id.
+| Matrícula                                | Estudante                          | Telefone                             |
+|------------------------------------------|------------------------------------|--------------------------------------|
+| Trancar matrícula.                       | Atualiza dados do Estudante.       | Lista todos os telefones.            |
+| Reabrir matrícula.                       | Lista com todos os estudantes.     | Cria um novo Telefone.               |
+| Listar todas as matrículas.              | Cria novo Estudante.               | Busca telefone pelo número.          |
+| Criar uma nova matrícula.                | Busca estudante pelo CPF.          | Lista todos os telefones do aluno.   |
+| Buscar matrícula pelo número.            | Apaga o registro do estudante.     | Remove o telefone pelo Id.           |
+| Buscar matrícula pelo CPF do estudante.  |                                    | Remove todos os telefones do aluno.  |
+| Listar matrículas trancadas.             |                                    |                                      |
+| Listar matrículas ativas.                |                                    |                                      |
+
 
 ## 📺Layout
 ![endpoints](https://github.com/reynaldo-hendson/Teste_Desenvolvedor_Backend/assets/80369346/816e046f-4641-4b59-9df6-a4ece0742131)
