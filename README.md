@@ -31,26 +31,25 @@ O campo de matrícula não pode se repetir dentro da base;
 
 ```mermaid
 classDiagram
- Student "1" <--> "1..*" Phone
- Student "1" <--> "1..*"Endereco 
- Student *-- StatusRegistrationStudent 
+ Estudante "1..*" <--> "1" Telefone
+ Estudante "1" <--> "1..*"Endereco 
+ Matricula "1" <--> "1" StatusMatriculaEstudante
+ Matricula "1" <--> "0..1" Estudante
 
-  class Student {
+  class Estudante {
+    -String cpf
     -String name
     -String lastName
-    -String cpf
     -String email
     -Endereco endereco
     -List<Phone> telefone
-    -String registration
-    -StatusRegistrationStudent status
     -LocalDateTime dateRegistration
-    -LocalDateTime lockingDateRegistration
   }
 
-  class Phone {
+  class Telefone {
     -String telefone
-    -Student estudante
+    -Estudante estudante
+    -LocalDateTime dateRegistration
   }
 
   class Endereco {
@@ -62,11 +61,21 @@ classDiagram
     -String uf
   }
 
-  class StatusRegistrationStudent {
+  class Matricula{
+    -String numeroMatricula
+    -Estudante estudante
+    -StatusMatriculaEstudante
+    -LocalDateTime dataRegistroMatricula
+    -LocalDateTime dataTrancamentoMatricula
+    -LocalDateTime dataReaberturaMatricula
+  }
+
+  class StatusMatriculaEstudante {
     «enumeration»
     ATIVA
     TRANCADA
   }
+
 
  
 ```
@@ -116,9 +125,13 @@ Consulte o arquivo application.properties (ou application.yml) para configurar o
 1. [Java 17](https://www.java.com/pt-BR/)
 2. [Spring Boot 3](https://spring.io/projects/spring-boot)
 3. [ViaCEP](https://viacep.com.br/)
-4. [OpenAPI (Swagger)](https://springdoc.org/)
+4. [SpringDoc (Swagger)](https://springdoc.org/)
 5. [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
 6. [MapStruct](https://mapstruct.org/)
+7. [Docker](https://www.docker.com/)
+8. [Flyway](https://www.red-gate.com/products/flyway/community/)
+9. [PostgreSQL](https://www.postgresql.org/)
+10. [Postman](https://www.postman.com/)
 
 <h2 id="autoras">👤Pessoas Autoras</h2>
 
