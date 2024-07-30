@@ -82,16 +82,16 @@ classDiagram
 
 <h2 id = "funcionalidades"> 🖥️Funcionalidades do Projeto </h2>
 
-| Matrícula                                | Estudante                          | Telefone                             |
-|------------------------------------------|------------------------------------|--------------------------------------|
-| Trancar matrícula.                       | Atualiza dados do Estudante.       | Lista todos os telefones.            |
-| Reabrir matrícula.                       | Lista com todos os estudantes.     | Cria um novo Telefone.               |
-| Listar todas as matrículas.              | Cria novo Estudante.               | Busca telefone pelo número.          |
-| Criar uma nova matrícula.                | Busca estudante pelo CPF.          | Lista todos os telefones do aluno.   |
-| Buscar matrícula pelo número.            | Apaga o registro do estudante.     | Remove o telefone pelo Id.           |
-| Buscar matrícula pelo CPF do estudante.  |                                    | Remove todos os telefones do aluno.  |
-| Listar matrículas trancadas.             |                                    |                                      |
-| Listar matrículas ativas.                |                                    |                                      |
+| Matrícula                               | Estudante                          | Telefone                             |
+|-----------------------------------------|------------------------------------|--------------------------------------|
+| [x] Trancar matrícula.                  | [x] Atualiza dados do Estudante.       | [x] Lista todos os telefones.            |
+| [x] Reabrir matrícula.                      | [x] Lista com todos os estudantes.     | [x] Cria um novo Telefone.               |
+| [x] Listar todas as matrículas.             | [x] Cria novo Estudante.               | [x] Busca telefone pelo número.          |
+| [x] Criar uma nova matrícula.               | [x] Busca estudante pelo CPF.          | [x] Lista todos os telefones do aluno.   |
+| [x] Buscar matrícula pelo número.           | [x] Apaga o registro do estudante.     | [x] Remove o telefone pelo Id.           |
+| [x] Buscar matrícula pelo CPF do estudante. |                                    | [x] Remove todos os telefones do aluno.  |
+| [x] Listar matrículas trancadas.            |                                    |                                      |
+| [x] Listar matrículas ativas.               |                                    |                                      |
 
 
 ## 📺Layout
