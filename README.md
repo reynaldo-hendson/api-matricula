@@ -96,7 +96,7 @@ classDiagram
 
 <h2 id="demonstracao"> Demonstração </h2>
 
-[Projeto](endereço da aplicação)
+[Projeto]
 
 
 <h2 id="rodar">💿Como Rodar este projeto</h2>
