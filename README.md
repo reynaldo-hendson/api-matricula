@@ -1,6 +1,5 @@
-# Backend Developer - Test
-
-Projeto API Restful elaborado para teste de desenvolvedor Backend.
+# Api Matrícula
+## Projeto API Restful elaborado para teste de desenvolvedor Backend.
 
 ## Índice
 - <a href="#sobreDescricao">Sobre o Desafio</a>
@@ -12,21 +11,8 @@ Projeto API Restful elaborado para teste de desenvolvedor Backend.
 - <a href="#autoras">Pessoas Autoras</a>
 - <a href="#proximospassos">Próximos passos</a>
 
-<h2 id="sobreDescricao">Sobre o Desafio</h2>
-Desenvolva uma API Rest para um cadastro de estudantes com intuito de consultar, criar novos registros, realizar atualizações e exclusões nestes (CRUD) utilizando um banco de dados. Em um cenário de trabalho esta API seria consumida por um desenvolvedor front-end trabalhando em par contigo.
-
-<h3>Informações técnicas</h3>
-
-Utilizar linguagens suportadas pela empresa que são Java ou Kotlin, preferencialmente Java que é a linguagem predominante no back-end da empresa. Banco de dados preferencialmente MySQL/MariaDB ou algum banco similar ao mesmo (Postgre, SQLite ou H2).
-
-Escrever uma aplicação que exponha uma API Rest
-Esta API deve conter ao menos um CRUD básico
-Regras de negócio
-Cadastrar campos nome, sobrenome e matrícula;
-Todos os campos devem ser preenchidos;
-Todos os campos devem conter mais de 3 caracteres;
-O campo de matrícula não pode se repetir dentro da base;
-
+<h2 id="sobreDescricao">Sobre a Api</h2>
+Este projeto consiste no desenvolvimento de uma API para gerenciamento acadêmico, oferecendo funcionalidades relacionadas a matrículas, estudantes e seus telefones. No módulo de Matrículas, a API permite ações como trancar, reabrir, listar (todas, ativas ou trancadas) e buscar matrículas por número ou CPF. O módulo de Estudantes inclui operações para criar, atualizar e excluir registros de alunos, além de listar todos os estudantes ou buscar um aluno específico pelo CPF. Já no módulo de Telefones, é possível gerenciar os contatos dos estudantes, incluindo a criação, listagem (geral ou por aluno), busca por número, além de permitir a remoção de telefones individuais ou de todos os telefones de um aluno. Este projeto visa facilitar o gerenciamento e a organização das informações acadêmicas e de contato de estudantes.
 <h2 id="diagrama">Diagrama de classes</h2>
 
 ```mermaid
